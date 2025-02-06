@@ -6,15 +6,15 @@ Este proyecto contiene el código para mostrar una señal EMG (electromiografía
 ## Como lo realizamos 
 Iniciamos obteniendo los datos de sitio web PhysioNet, después de elegir el estudio que tenga que ver con datos de EMG a trabajar, se buscan entre los archivos cargados uno que termine con la extensión .dat y .hea, que nos indican los datos obtenidos durante la toma de la EMG del estudio a trabajar.  
 ### Muestra de la señal EMG
-Luego de descargar los archivos con los datos que contiene los movimientos de en este caso el participante 1, se cargan a Python que es el lenguaje trabajado para esta practica, con ayuda de la libreria wfdb; Para que el eje x mostrara el tiempo y no las muestras tomadas realizamos el siguiente vector:
-```pitón
-tiempo = np.arange(len(senal)) / fs
-```
-Se logra obtener la siguiente señal emg, que es de los movimientos de flexión de muñeca, extensión de muñeca con una señal de muestreo de 1000 Hz:
+Luego de descargar los archivos con los datos que contiene los movimientos de en este caso el participante 1, se cargan a Python que es el lenguaje trabajado para esta practica, con ayuda de la libreria wfdb, se logra obtener la siguiente señal emg, que es de los movimientos de flexión de muñeca, extensión de muñeca con una señal de muestreo de 1000 Hz:
 
 ![señal ](https://github.com/user-attachments/assets/48740300-8fb9-4100-830d-b2c84479f3cf)
 *Señal EMG, voltaje vs tiempo.*
 
+Para que el eje x mostrará el tiempo y no las muestras tomadas realizamos el siguiente vector:
+```pitón
+tiempo = np.arange(len(senal)) / fs
+```
 ### Cálculos Estadísticos
 Despues de obtener lo anterior, realizamos los cálculos estadísticos de la media, desviación estándar y coeficiente de variación, utilizando dos tipos de métodos para hallar esos valores, el primer método es “manual” generando un for donde recorra cada muestra de la señal y nos indique cada valor usando las formulas estadísticas descritas para cada medida. 
 Por otro lado, también se realizaron los cálculos de cada medida con las funciones que vienen incluidas en el lenguaje de Python
