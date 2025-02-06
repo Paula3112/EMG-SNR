@@ -60,7 +60,7 @@ coef_var_numpy = desv_numpy / media_numpy
 ```
  
 ## 2. Histograma y funcion de probabilidad 
-Segun la señal obetenida se realizo un histograma segun los datos, añadiendo la funcion de prbabilidad.
+Con la señal obtenida, logramos graficar el histograma y la función de probabilidad de la señal EMG trabajada.
 ``` pitón
 hist, bins = np.histogram(senal, bins=50, density=True)
 bin_centers = (bins[:-1] + bins[1:]) / 2
@@ -70,12 +70,16 @@ Se obtuvo lo siguiente:
 ![histograma](https://github.com/user-attachments/assets/58bee68a-8078-4a61-b5aa-da5a61fba413)
 *Histograma + funcion de probabilidad.*
 
-## 3. Gerneramos ruidos 
+## 3.Relacion Señal / Ruido 
 
-Realizamos los calculos adecuados para los siguientes items:
+El concepto de Relacion Señal-Ruido o mas conocido por sus siglas "SNR" es una medida que nos dice que tan clara esta la señal o si por el contrario esta tapada por el ruido, si el SNR es alto quiere decir que la señal es clara y el ruido como tal no la interrumpe mucho pero si la señal es baja seria todo lo contrario,el ruido estaria interrumpiendo demasiado con la señal haciendola mas dificil de analizar 
 
-### Ruido gausiano: 
-Podemos evidenciar que este puede ser una interferencia muy fuerte o muy suave,lo podemos evidenciar si lo comparamos como si fuese un "Ruido de fondo" que en su totalidad afectarian a la señal. Lo entenderiamos mejor como si estuvieramos gravando un audio y al mismo tiempo alguien estuviera hablando de fondo, esto lo realizamos para un ruido fuerte y uno sueve:
+## 3.1 Gerneramos ruidos 
+
+Realizamos los calculos adecuados para generar los ruidos gaussiano, ruido de impulsos y ruido de artefacto, como se evidenciará más adelante. 
+
+### Ruido gaussiano: 
+Podemos evidenciar que este puede ser una interferencia muy fuerte o muy suave, se logra ver si lo comparamos como si fuese un "Ruido de fondo" que en su totalidad afectaria a la señal. Lo entenderiamos mejor como si estuvieramos grabando un audio y al mismo tiempo alguien estuviera hablando de fondo, esto lo realizamos para un ruido fuerte y uno sueve:
 
 ```pitón
 ruido_gauss_fuerte = np.random.normal(0, 0.2, len(senal))
@@ -94,7 +98,6 @@ Imaginemos que esta la señal y de repente en el medio hay un golpe o se crea un
 ruido_impulsos_fuerte = np.zeros(len(senal))
 indices_fuerte = np.random.choice(len(senal), size=int(len(senal) * 0.05), replace=False)
 ruido_impulsos_fuerte[indices_fuerte] = np.random.uniform(-1, 1, len(indices_fuerte))
-
 ruido_impulsos_suave = np.zeros(len(senal))
 indices_suave = np.random.choice(len(senal), size=int(len(senal) * 0.025), replace=False)
 ruido_impulsos_suave[indices_suave] = np.random.uniform(-0.5, 0.5, len(indices_suave))
@@ -120,10 +123,8 @@ Segun lo anterior se obtuvo lo siguiente:
 ![ruido](https://github.com/user-attachments/assets/a520c2b2-f0f7-4a92-81f3-626a4be27422)
 *SNR*
 
-## 3.1 Relacion Señal / Ruido 
-
-El concepto de Relacion Señal-Ruido o mas conocido por sus siglas "SNR" es una medida que nos dice que tan clara esta la señal o si por el contrario esta tapada por el ruido, si el SNR es alto quiere decir que la señal es clara y el ruido como tal no la interrumpe mucho pero si la señal es baja seria todo lo contrario,el ruido estaria interrumpiendo demasiado con la señal haciendola mas dificil de analizar 
-
+## Referencias 
+[1] Quevedo F. Medidas de tendencia central y dispersión. Medwave 2011 Mar;11(3). https://dsp.facmed.unam.mx/wp-content/uploads/2013/12/Quevedo-F.-Medidas-de-tendencia-central-y-dispersion.-Medwave-2011-Ma-113..pdf
 
 
 
