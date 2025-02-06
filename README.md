@@ -75,14 +75,46 @@ Se obtuvo lo siguiente:
 Realizamos los calculos adecuados para los siguientes items:
 
 ### Ruido gausiano: 
-Podemos evidenciar que este puede ser una interferencia muy fuerte o muy suave,lo podemos evidenciar si lo comparamos como si fuese un "Ruido de fondo" que en su totalidad afectarian a la señal. Lo entenderiamos mejor como si estuvieramos gravando un audio y al mismo tiempo alguien estuviera hablando de fondo 
+Podemos evidenciar que este puede ser una interferencia muy fuerte o muy suave,lo podemos evidenciar si lo comparamos como si fuese un "Ruido de fondo" que en su totalidad afectarian a la señal. Lo entenderiamos mejor como si estuvieramos gravando un audio y al mismo tiempo alguien estuviera hablando de fondo, esto lo realizamos para un ruido fuerte y uno sueve:
+
+```pitón
+ruido_gauss_fuerte = np.random.normal(0, 0.2, len(senal))
+ruido_gauss_suave = np.random.normal(0, 0.1, len(senal))
+senal_ruidosa_gauss_fuerte = senal + ruido_gauss_fuerte
+senal_ruidosa_gauss_suave = senal + ruido_gauss_suave
+snr_gauss_fuerte = calcular_snr(senal_ruidosa_gauss_fuerte, ruido_gauss_fuerte)
+snr_gauss_suave = calcular_snr(senal_ruidosa_gauss_suave, ruido_gauss_suave)
+```
+
 
 ### Ruido de impulsos: 
-imaginemos que esta la señal y de repente en el medio hay un golpe o se crea una distorsion en un punto especifico, que seria lo que crea este ruido. 
+Imaginemos que esta la señal y de repente en el medio hay un golpe o se crea una distorsion en un punto especifico, que seria lo que crea este ruido, esto lo realizamos para un ruido fuerte y uno sueve:
 
+```pitón
+ruido_impulsos_fuerte = np.zeros(len(senal))
+indices_fuerte = np.random.choice(len(senal), size=int(len(senal) * 0.05), replace=False)
+ruido_impulsos_fuerte[indices_fuerte] = np.random.uniform(-1, 1, len(indices_fuerte))
+
+ruido_impulsos_suave = np.zeros(len(senal))
+indices_suave = np.random.choice(len(senal), size=int(len(senal) * 0.025), replace=False)
+ruido_impulsos_suave[indices_suave] = np.random.uniform(-0.5, 0.5, len(indices_suave))
+
+senal_ruidosa_impulsos_fuerte = senal + ruido_impulsos_fuerte
+senal_ruidosa_impulsos_suave = senal + ruido_impulsos_suave
+snr_impulsos_fuerte = calcular_snr(senal_ruidosa_impulsos_fuerte, ruido_impulsos_fuerte)
+snr_impulsos_suave = calcular_snr(senal_ruidosa_impulsos_suave, ruido_impulsos_suave)
+```
 ### Ruido de artefacto:
-Es un ruido repetitivo que parece una onda constante, como si fuera un sonido rítmico que no tiene nada que ver con la señal original.
+Es un ruido repetitivo que parece una onda constante, como si fuera un sonido rítmico que no tiene nada que ver con la señal original,esto lo realizamos para un ruido fuerte y uno sueve:
 
+```pitón
+ruido_artefacto_fuerte = 0.3 * np.sin(2 * np.pi * np.arange(len(senal)) / 50)
+ruido_artefacto_suave = 0.15 * np.sin(2 * np.pi * np.arange(len(senal)) / 50)
+senal_ruidosa_artefacto_fuerte = senal + ruido_artefacto_fuerte
+senal_ruidosa_artefacto_suave = senal + ruido_artefacto_suave
+snr_artefacto_fuerte = calcular_snr(senal_ruidosa_artefacto_fuerte, ruido_artefacto_fuerte)
+snr_artefacto_suave = calcular_snr(senal_ruidosa_artefacto_suave, ruido_artefacto_suave)
+```
 
 ## 3.1 Relacion Señal / Ruido 
 
