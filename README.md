@@ -115,6 +115,10 @@ senal_ruidosa_artefacto_suave = senal + ruido_artefacto_suave
 snr_artefacto_fuerte = calcular_snr(senal_ruidosa_artefacto_fuerte, ruido_artefacto_fuerte)
 snr_artefacto_suave = calcular_snr(senal_ruidosa_artefacto_suave, ruido_artefacto_suave)
 ```
+Segun lo anterior se obtuvo lo siguiente:
+
+![ruido](https://github.com/user-attachments/assets/a520c2b2-f0f7-4a92-81f3-626a4be27422)
+*SNR*
 
 ## 3.1 Relacion Señal / Ruido 
 
