@@ -6,58 +6,59 @@ Este proyecto contiene el código para mostrar una señal EMG (electromiografía
 ## Como lo realizamos 
 Iniciamos obteniendo los datos de sitio web PhysioNet, después de elegir el estudio que tenga que ver con datos de EMG a trabajar, se buscan entre los archivos cargados uno que termine con la extensión .dat y .hea, que nos indican los datos obtenidos durante la toma de la EMG del estudio a trabajar.  
 ### Muestra de la señal EMG
-Luego de descargar los archivos con los datos que contiene los movimientos de en este caso el participante 1, se cargan a Python que es el lenguaje trabajado para esta practica, con ayuda de la libreria wfdb, para que el eje x mostrara el tiempo y no las muestras tomadas realizamos el siguiente vector:
+Luego de descargar los archivos con los datos que contiene los movimientos de en este caso el participante 1, se cargan a Python que es el lenguaje trabajado para esta practica, con ayuda de la libreria wfdb; Para que el eje x mostrara el tiempo y no las muestras tomadas realizamos el siguiente vector:
 ```pitón
 tiempo = np.arange(len(senal)) / fs
 ```
-Se logra obtener la siguiente señal emg, que es de los movimientos de flexión de muñeca, extensión de muñeca:
+Se logra obtener la siguiente señal emg, que es de los movimientos de flexión de muñeca, extensión de muñeca con una señal de muestreo de 1000 Hz:
 
 ![señal ](https://github.com/user-attachments/assets/48740300-8fb9-4100-830d-b2c84479f3cf)
 *Señal EMG, voltaje vs tiempo.*
 
-### 1 Calculos estadisticos 
-Despues de obtener lo anterior,realizamos los calculos a mano y con funciones de python del promedio (media),desviacion estandar y coefisiente de variacion,
-
+### Cálculos Estadísticos
+Despues de obtener lo anterior, realizamos los cálculos estadísticos de la media, desviación estándar y coeficiente de variación, utilizando dos tipos de métodos para hallar esos valores, el primer método es “manual” generando un for donde recorra cada muestra de la señal y nos indique cada valor usando las formulas estadísticas descritas para cada medida. 
+Por otro lado, también se realizaron los cálculos de cada medida con las funciones que vienen incluidas en el lenguaje de Python
 ### -La media:
-En este caso desimos que es el valor ("promedio") de todos los puntos en la señal de la EMG, para que sea mejor entendido se puede imaginar que la señal es como un grafico entonces el promedio seria el punto medio de esta linea.
+En este caso, nos referimos a la media como el "promedio" de todos los puntos en la señal de la EMG. Para entenderlo mejor, imagina que la señal es un gráfico: el promedio seria el punto medio de esa línea, representando el valor central de todos los puntos en la señal. 
 
- Calculo manual:
+ Cálculo manual:
  ``` pitón
 total=0
 for i in range(len(senal)):
     total += senal[i]
 media_manual = toatal / len(senal)
 ```
-Funcion de python:
+Cálculo de python:
 ``` pitón
 media_numpy = np.mean(senal)
 ```
 
-### -Desviacion estandar:
-Es la muestra de que tan dispesa es la señal, seidentifica las dos modalidades pues si la desviacion es baja o pequeña podemos decir que la señal es constante pero si la desviacion es grande la señal tiene muchas variaciones (seria lo contrario a la pequeña).
+### -Desviación estándar:
+Es la muestra de que tan alejados están cada uno de los datos de la media o promedio, si están muy dispersos la desviación estándar será grande, por el contrario, si son muy concentrados la desviación estándar será pequeña. 
 
- Calculo manual:
+ Cálculo manual:
 ``` pitón
 suma_cuadrados = 0
 for i in range(len(senal)):
     suma_cuadrados += (senal[i] - media_manual) ** 2
 desv_manual = (suma_cuadrados / len(senal)) ** 0.5 
 ```
-Funcion de python:
+Cálculo de python:
 ``` pitón
 desv_numpy = np.std(senal)
 ```
-### -Coeficiente de variacion:
-Aca se centra en la relacion de la desviacion estandar y la media,lo cual indica si la señal es más estable o muy cambiante en comparación con su valor promedio.
+### -Coeficiente de variación:
+Se centra en la relación de la desviación estándar y la media,lo cual indica si la señal es más estable o muy cambiante en comparación con su valor promedio.
 
- Calculo manual:
+ Cálculo manual:
 ``` pitón
 coef_var_manual = desv_manual / media_manual
 ```
-Funcion de python:
+Cálculo de python:
 ``` pitón
 coef_var_numpy = desv_numpy / media_numpy
 ```
+ 
 ## 2. Histograma y funcion de probabilidad 
 
 
