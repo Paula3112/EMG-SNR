@@ -4,9 +4,9 @@
 Este proyecto contiene el código para mostrar una señal EMG (electromiografía) a partir de los datos obtenidos del sitio web pyshionet, del estudio Gesture Recognition and Biometrics ElectroMyogram (Electromiograma de reconocimiento de gestos y biometría); también se muestra la relación señal ruido (SNR) con ruido gaussiano, ruido impulso y ruidos tipo artefacto.  
 
 ## Como lo realizamos 
-Lo que hace este código es:
-### 1. Obtenemos la señal 
-Despues de obtener la señal, el archivo contiene los datos de una persona relizando algun ovimiento,despues el codigo los carga, sabemos que esta señal obtenida muestra la actividad de los musculos cuando alguien se mueve,siendo muy paresida a una onda senosoidal (una onda que sube y baja ) segun la fuerza con la que el musculo es movido.
+Iniciamos obteniendo los datos de sitio web PhysioNet, después de elegir el estudio que tenga que ver con datos de EMG a trabajar, se buscan entre los archivos cargados uno que termine con la extensión .dat y .hea, que nos indican los datos obtenidos durante la toma de la EMG del estudio a trabajar.  
+### Muestra de la señal EMG
+Luego de descargar los archivos con los datos que contiene los movimientos de en este caso el participante 1, se cargan a Python que es el lenguaje trabajado para esta practica, con ayuda de la libreria 
 ### 1
 Despues de obtener lo anterior,realizamos los calculos a mano y con funciones de python del promedio (media),desviacion estandar y coefisiente de variacion,
 
