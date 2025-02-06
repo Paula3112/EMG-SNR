@@ -60,8 +60,15 @@ coef_var_numpy = desv_numpy / media_numpy
 ```
  
 ## 2. Histograma y funcion de probabilidad 
+Segun la señal obetenida se realizo un histograma segun los datos, añadiendo la funcion de prbabilidad.
+``` pitón
+hist, bins = np.histogram(senal, bins=50, density=True)
+bin_centers = (bins[:-1] + bins[1:]) / 2
+```
+Se obtuvo lo siguiente:
 
-
+![histograma](https://github.com/user-attachments/assets/58bee68a-8078-4a61-b5aa-da5a61fba413)
+*Histograma + funcion de probabilidad.*
 
 ## 3. Gerneramos ruidos 
 
