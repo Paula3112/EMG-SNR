@@ -123,6 +123,11 @@ Segun lo anterior se obtuvo lo siguiente:
 ![ruido](https://github.com/user-attachments/assets/a520c2b2-f0f7-4a92-81f3-626a4be27422)
 *SNR*
 
+## Recomendaciones
+  Python 3.9
+  wfdb
+  matplotlib
+  
 ## Referencias 
 [1] Quevedo F. Medidas de tendencia central y dispersión. Medwave 2011 Mar;11(3). https://dsp.facmed.unam.mx/wp-content/uploads/2013/12/Quevedo-F.-Medidas-de-tendencia-central-y-dispersion.-Medwave-2011-Ma-113..pdf
 [2] Recursos Informáticos, T. del C. A. (s/f). SNR (Signal To Noise Ratio). Weebly.com. https://recursoinformatico.weebly.com/uploads/1/0/7/3/107381475/snr.pdf
