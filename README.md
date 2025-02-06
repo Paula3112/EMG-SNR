@@ -5,28 +5,21 @@ Este proyecto contiene el código para mostrar una señal EMG (electromiografía
 
 ## Como lo realizamos 
 Lo que hace este código es:
+### 1. Obtenemos la señal 
+Despues de obtener la señal, el archivo contiene los datos de una persona relizando algun ovimiento,despues el codigo los carga, sabemos que esta señal obtenida muestra la actividad de los musculos cuando alguien se mueve,siendo muy paresida a una onda senosoidal (una onda que sube y baja ) segun la fuerza con la que el musculo es movido.
+### 1
+Despues de obtener lo anterior,realizamos los calculos a mano y con funciones de python del promedio (media),desviacion estandar y coefisiente de variacion,
 
-1. Obtener la señal: Primero, el código recibe una grabación (como si fuera un video, pero de señales eléctricas) de una persona moviendo su brazo. Esta señal nos muestra la fuerza con la que se mueve el músculo.
+### -La media:
+En este caso desimos que es el valor ("promedio") de todos los puntos en la señal de la EMG, para que sea mejor entendido se puede imaginar que la señal es como un grafico entonces el promedio seria el punto medio de esta linea
 
-2. Calcular algunos números importantes: El código calcula algunos valores sobre esta señal para poder entenderla mejor:
+### -Desviacion estandar:
+Es la muestra de que tan dispesa es la señal, seidentifica las dos modalidades pues si la desviacion es baja o pequeña podemos decir que la señal es constante pero si la desviacion es grande la señal tiene muchas variaciones (seria lo contrario a la pequeña).
 
-- Promedio (media): Es como si contaras todos los puntos de la señal y luego encontraras el número que más o menos "representa" a todos esos puntos. Es como encontrar el punto medio de algo.
-- Desviación estándar: Este número nos dice qué tan "dispersa" o "repartida" está la señal. Si está muy dispersa, quiere decir que hay muchos cambios grandes; si está menos dispersa, los cambios son pequeños.
-- Coeficiente de variación: Es como un número que compara la dispersión con el promedio para ver si la señal es más estable o muy variable.
+### -Coefisiente de variacion:
+Aca se centra en la relacion de la desviacion estandar y la media,lo cual indica si la señal es más estable o muy cambiante en comparación con su valor promedio.
 
-3. Generar ruidos: El código luego pone "ruidos" a la señal, como si alguien hablara mientras grabas, y queremos ver cómo cambia la señal cuando eso pasa. Hay diferentes tipos de ruidos:
-
-- Ruido Gaussiano: Es como un sonido suave o fuerte que se mete en la señal. Algunos ruidos son muy fuertes y otros son más suaves, como si alguien hablara bajito.
-- Ruido de Impulsos: Es como si, de repente, un sonido muy fuerte (como un golpe) aparece en la señal.
-- Ruido de Artefactos: Es como un sonido repetitivo, como si algo estuviera haciendo un ruido constante, pero no tiene que ver con la señal real.
-- Medir la relación entre la señal y el ruido (SNR): Después, el código calcula algo llamado SNR. Esto nos dice qué tan fuerte es la señal original comparada con el ruido que la interrumpe. Si la SNR es alta, eso significa que la señal es más clara y el ruido no la molesta mucho. Si la SNR es baja, el ruido hace más difícil escuchar la señal real.
-
-4. Dibujar los resultados: Finalmente, el código dibuja todo lo que sucedió en gráficos para que podamos verlo:
-
-- Un gráfico muestra cómo se ve la señal original.
-- Otro gráfico muestra cómo la señal cambia con el ruido.
-- También dibuja el histograma (gráficos de barras) que nos ayudan a ver cómo se distribuyen los valores de la señal y el ruido.
-
+### 2
 
 ``` pitón
 total=0
