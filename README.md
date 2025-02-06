@@ -47,7 +47,7 @@ Funcion de python:
 ``` pitón
 desv_numpy = np.std(senal)
 ```
-### -Coefisiente de variacion:
+### -Coeficiente de variacion:
 Aca se centra en la relacion de la desviacion estandar y la media,lo cual indica si la señal es más estable o muy cambiante en comparación con su valor promedio.
 
  Calculo manual:
