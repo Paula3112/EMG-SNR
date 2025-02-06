@@ -124,15 +124,11 @@ Segun lo anterior se obtuvo lo siguiente:
 *SNR*
 
 ## Recomendaciones
-  -Python 3.9
-  -wfdb
-  -matplotlib
+  -Python 3.9, wfdb, matplotlib
   
 ## Informacion de contacto 
 
-est.paula.vcardenas@unimilitar.edu.co
-est.sara.martinqunimilitar.edu.co
-est.cristian.cmolina@unimilitar.edu.co
+-est.paula.vcardenas@unimilitar.edu.co, est.sara.martin@unimilitar.edu.co, est.cristian.cmolina@unimilitar.edu.co
   
 ## Referencias 
 [1] Quevedo F. Medidas de tendencia central y dispersión. Medwave 2011 Mar;11(3). https://dsp.facmed.unam.mx/wp-content/uploads/2013/12/Quevedo-F.-Medidas-de-tendencia-central-y-dispersion.-Medwave-2011-Ma-113..pdf
